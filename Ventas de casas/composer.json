@@ -1,5 +1,19 @@
 {
+    "name": "51998/bienes-raices",
+    "description": "POO",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jennifer",
+            "email": "jennifer15aries@gmail.con"
+        }
+    ],
     "require": {
         "intervention/image": "2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\" : "./classes"
+        }
     }
 }
