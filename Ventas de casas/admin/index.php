@@ -15,22 +15,10 @@
         $id = filter_var($id,FILTER_VALIDATE_INT);
 
         if($id){
-            //Eliminar archivo
-            $query = "SELECT imagen FROM propiedades WHERE idpropiedades = ${id}";
-            $resultado = mysqli_query($db,$query);
-            //Recuperar los resultados
-            $propiedad = mysqli_fetch_assoc($resultado);
-            //Eliminar el archivo
-            unlink('../imagenes/' . $propiedad['imagen']);
+            //Obtener los datos de la propiedad
+            $property = Propiedad::find($id);
 
-            //Eliminar propiedad
-            $query = "DELETE FROM propiedades WHERE idpropiedades = ${id}";
-            //echo $query;
-            $resultado = mysqli_query($db,$query);
-
-            if($resultado){
-                header('Location: /admin?resultado=3');
-            }
+            $property -> eliminar();
         }
     }
     

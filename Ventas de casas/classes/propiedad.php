@@ -4,7 +4,6 @@ namespace App;
 
 //PHP8
 class Propiedad{
-
     //Base de datos - no se puede acceder desde el objeto
     protected static $db;
     //Arreglo que va a permitir mapear
@@ -25,7 +24,7 @@ class Propiedad{
 
     //this -> public constructor
     function __construct($args =[]){
-        $this -> idpropiedades =$args['idpropiedades'] ?? '';
+        $this -> idpropiedades =$args['idpropiedades'] ?? null;
         $this -> titulo =$args['titulo'] ?? '';
         $this -> precio =$args['precio'] ?? '';
         $this -> imagen =$args['imagen'] ?? '';
@@ -38,7 +37,8 @@ class Propiedad{
     }
 
     public function guardar(){
-        if(isset($this->idpropiedades)){
+        //si es diferente a null
+        if(!is_null($this->idpropiedades)){
             //ACTUALIZAR
             $this->actualizar();
         }else{
@@ -59,7 +59,12 @@ class Propiedad{
         $query .= "')";
         //self pq es estatico -> insertar en la bd
         $result = self::$db -> query($query);
-        return $result;
+
+        //Verificacion de insersion
+        if($result){
+            //redireccionar al usuario
+            header('Location: /admin?resultado=1');
+        }
     }
 
     public function actualizar(){
@@ -86,6 +91,27 @@ class Propiedad{
         }
     }
 
+    //Eliminar un registro
+    public function eliminar(){
+        //Eliminar la propiedad
+        $query = "DELETE FROM propiedades WHERE idpropiedades = ".self::$db->escape_string($this->idpropiedades). " LIMIT 1";
+        $result = self::$db -> query($query);
+        // si hay un eliminado
+        if($result){
+            $this->borrarImagen();
+            Header('Location: /admin?resultado=3');
+        }
+    }
+
+    //Eliminar imagen
+    public function borrarImagen(){
+        //Comprobar si existe el archivo
+        $fileexists = file_exists(CARPETA_IMAGENES . $this->imagen);
+        if($fileexists):
+            unlink(CARPETA_IMAGENES . $this->imagen);
+        endif;
+    }
+
     //Identificar y unir los atributos de la bd
     public function attributes(){
         $attributes = [];
@@ -109,43 +135,13 @@ class Propiedad{
     //Subida de archivos
     public function setImage($image){
         //Elimina si hay una imagen previa
-        if(isset($this->idpropiedades)){
-            //Comprobar si existe el archivo
-            $fileexists = file_exists(CARPETA_IMAGENES . $this->imagen);
-            if($fileexists):
-                unlink(CARPETA_IMAGENES . $this->imagen);
-            endif;
+        if(!is_null($this->idpropiedades)){
+            $this->borrarImagen();
         }
         //Asignar al atributo de la imagen el nombre de la imagen
         if($image){
             $this->imagen = $image;
         }
-    }
-    //Validacion
-    public static function getErrores(){
-        return self::$errores;
-    }
-
-    //Validar errores
-    public function validar(){
-        if(!$this->titulo){
-            self::$errores[] = "Debes añadir un titúlo";
-        }if(!$this->precio){
-            self::$errores[] = "El precio es obligatorio";
-        }if(strlen($this->descripcion) < 50){
-            self::$errores[] = "La descripción es obligatoria y debe tener al menos 50 caracteres";
-        }if(!$this->habitaciones){
-            self::$errores[] = "Las habitaciones son obligatorias";
-        }if(!$this->wc){
-            self::$errores[] = "El baño es obligatorio";
-        }if(!$this->estacionamiento){
-            self::$errores[] = "El estacionamiento es obligatorio";
-        }if(!$this->vendedores_idvendedores){
-            self::$errores[] = "El vendedor es obligatorio";
-        }if(!$this->imagen){
-             self::$errores[] = "La imagen es obligatoria";
-        }
-        return self::$errores;
     }
 
     //Lista de todas las propiedades
@@ -166,6 +162,7 @@ class Propiedad{
         return array_shift($result);
     }
 
+    //
     public static function ConsultSql($query){
         //Consultar la bd
         $result = self::$db -> query($query);
@@ -202,6 +199,33 @@ class Propiedad{
                 $this -> $key= $value;
             endif;
         endforeach;
+    }
+
+    //Validacion
+    public static function getErrores(){
+        return self::$errores;
+    }
+
+    //Validar errores
+    public function validar(){
+        if(!$this->titulo){
+            self::$errores[] = "Debes añadir un titúlo";
+        }if(!$this->precio){
+            self::$errores[] = "El precio es obligatorio";
+        }if(strlen($this->descripcion) < 50){
+            self::$errores[] = "La descripción es obligatoria y debe tener al menos 50 caracteres";
+        }if(!$this->habitaciones){
+            self::$errores[] = "Las habitaciones son obligatorias";
+        }if(!$this->wc){
+            self::$errores[] = "El baño es obligatorio";
+        }if(!$this->estacionamiento){
+            self::$errores[] = "El estacionamiento es obligatorio";
+        }if(!$this->vendedores_idvendedores){
+            self::$errores[] = "El vendedor es obligatorio";
+        }if(!$this->imagen){
+             self::$errores[] = "La imagen es obligatoria";
+        }
+        return self::$errores;
     }
 }
 
