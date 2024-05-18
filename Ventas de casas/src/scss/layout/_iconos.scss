@@ -1,0 +1,13 @@
+.iconos-nosotros{
+    display: grid;
+    @include tablet{
+        @include grid(3,2rem);
+    }
+    .icono{
+        text-align: center;
+        img{
+            margin-top: 2rem;
+            height: 10rem;
+        }
+    }
+}

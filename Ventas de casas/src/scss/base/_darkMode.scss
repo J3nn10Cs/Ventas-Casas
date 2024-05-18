@@ -1,0 +1,52 @@
+.dark-mode{
+    background-color: darken($grisOscuro,10);
+    p{
+        color: $blanco;
+    }
+    a,h1,h2,h3,h4{
+        color: $gris;
+    }
+    .anuncio{
+        background-color: $grisOscuro;
+        border: 1px solid $grisOscuro;
+        .precio{
+            color: $verde;
+        }
+        .icono{
+            filter: invert(100%);
+        }
+    }
+    .texto-entrada h4{
+        color: $gris;
+    }
+
+    .contenido-propiedad{
+        .precio{
+            color: $verde;
+        }
+        .icono{
+            filter: invert(100%);
+        }
+    }
+    .formulario{
+        background-color: darken($grisOscuro,10);
+        border: 1px solid $gris;
+        label,p,legend{
+            color: $gris;
+        }
+        input:not([type="submit"]), 
+        textarea,select{
+            background-color: $grisOscuro;
+            color: $blanco;
+        }
+    }
+    .propiedades{
+        thead,tbody{
+            color: $blanco;
+        }
+        td{
+            border-bottom: 0.1rem solid $blanco;
+        }
+    }
+
+}

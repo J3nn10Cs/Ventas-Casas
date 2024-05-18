@@ -1,0 +1,14 @@
+.sobre-nosotros{
+    @include tablet{
+        @include grid(2,2rem);
+        h4{
+            margin: 0;
+        }
+    }
+    
+}
+h4{
+    margin: 2rem 0rem;
+    font-weight: $black;
+    font-size: 2.2rem;
+}

@@ -1,0 +1,47 @@
+
+.formulario{
+    background-color: darken($verdeOscuro,5);
+    border-radius: 2rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    p{
+        font-size: 1.6rem;
+        color: $grisOscuro;
+        margin: 2rem 0 0 0;
+    }
+    fieldset{
+        border: none;
+    }
+    legend{
+        font-weight: $bold;
+        font-size: 2.3rem;
+        text-align: center;
+    }
+    label{
+        font-weight: bold;
+        display: block;
+    }
+    input:not([type="submit"]), 
+    textarea,select { //todos excepto los tipo "Submit"
+        padding: 1rem;
+        display: block;
+        width: 100%;
+        background-color: $blanco;
+        border: none;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+    }
+    textarea{
+        height: 20rem;
+    }
+    .forma-contacto{
+        max-width: 30rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    input[type="radio"]{
+        margin: 0;
+        width: auto;
+    }
+}
