@@ -13,7 +13,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $db = connectionBd();
 
 //importamos la clase
-use App\Propiedad;
+use App\ActiveRecord;
 
-
-Propiedad::setDb($db);
+//Steamos la bd 
+ActiveRecord::setDb($db);

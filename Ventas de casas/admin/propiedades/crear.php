@@ -2,17 +2,16 @@
     require '../../includes/app.php';
 
     use App\Propiedad;
+    use App\Vendedor;
     use Intervention\Image\ImageManagerStatic as Image;
     
     Autenticado();
 
-    $db = connectionBd();
-
     $property = new Propiedad;
 
     //Consultar para obtener a los vendedores
-    $consulta = "SELECT * FROM vendedores";
-    $resultado = mysqli_query($db,$consulta);
+    $seller = Vendedor::all();
+    
 
     //Arreglo con mensaje de errores
     $errores = Propiedad::getErrores();

@@ -3,8 +3,11 @@
     Autenticado();
 
     use App\Propiedad;
+    use App\Vendedor;
+
     //Implementar un metodo para poder obtener todas las propiedades
     $property = Propiedad::all();
+    $seller = Vendedor::all();
     //muestra mensaje segun la condicional
     $resultado = $_GET['resultado'] ?? null;
 
@@ -18,7 +21,7 @@
             //Obtener los datos de la propiedad
             $property = Propiedad::find($id);
 
-            $property -> eliminar();
+            $property -> eliminar();    
         }
     }
     
@@ -56,6 +59,7 @@
                         <td> <?php echo $propiedad->precio; ?></td>
                         <td class="acciones">
                             <form method="POST">
+                                <!--Tipo Hidden-->
                                 <input type="hidden" name="id" value="<?php echo $propiedad->idpropiedades; ?>">
                                 <button type="submit" class="boton-rojo-block" value="Eliminar">
                                     <i class="fa-solid fa-trash"></i>
