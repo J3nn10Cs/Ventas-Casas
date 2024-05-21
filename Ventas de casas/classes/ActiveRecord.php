@@ -20,7 +20,7 @@
 
         public function guardar(){
             //si es diferente a null
-            if(!is_null($this->idpropiedades)){
+            if(!is_null($this->id)){
                 //ACTUALIZAR
                 $this->actualizar();
             }else{
@@ -61,7 +61,7 @@
 
             $query = "UPDATE ".static::$table." SET ";
             $query .= join(',',$valores);
-            $query .= " WHERE idpropiedades='" .self::$db->escape_string($this->idpropiedades) . "' ";
+            $query .= " WHERE id='" .self::$db->escape_string($this->id) . "' ";
             $query .= " LIMIT 1";
 
             $result = self::$db->query($query);
@@ -76,7 +76,7 @@
         //Eliminar un registro
         public function eliminar(){
             //Eliminar la propiedad
-            $query = "DELETE FROM ". static::$table . " WHERE idpropiedades = ".self::$db->escape_string($this->idpropiedades). " LIMIT 1";
+            $query = "DELETE FROM ". static::$table . " WHERE id = ".self::$db->escape_string($this->id). " LIMIT 1";
             $result = self::$db -> query($query);
             // si hay un eliminado
             if($result){
@@ -98,7 +98,7 @@
         public function attributes(){
             $attributes = [];
             foreach(static::$columnBd as $column){
-                if($column === 'idpropiedades') continue; //ignorar id
+                if($column === 'id') continue; //ignorar id
                 $attributes[$column] = $this -> $column;
             }
             return $attributes;
@@ -117,7 +117,7 @@
         //Subida de archivos
         public function setImage($image){
             //Elimina si hay una imagen previa
-            if(!is_null($this->idpropiedades)){
+            if(!is_null($this->id)){
                 $this->borrarImagen();
             }
             //Asignar al atributo de la imagen el nombre de la imagen
@@ -139,7 +139,7 @@
 
         //Buscar una propiedad por Id
         public static function find($id){
-            $query = "SELECT * FROM ".static::$table." WHERE idpropiedades = ${id}";
+            $query = "SELECT * FROM ".static::$table." WHERE id = ${id}";
 
             $result = self::ConsultSql($query);
 

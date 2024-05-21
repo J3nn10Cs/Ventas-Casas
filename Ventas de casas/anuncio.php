@@ -12,7 +12,7 @@
         header('Location: /');
     }
     //Consulta a la bd
-    $query = "SELECT * FROM propiedades WHERE idpropiedades = ${id}";
+    $query = "SELECT * FROM propiedades WHERE id = ${id}";
     $resultado = mysqli_query($db,$query);
 
     if($resultado->num_rows ===0){

@@ -6,15 +6,15 @@ namespace App;
 class Propiedad extends ActiveRecord{
     protected static $table = 'propiedades';
 
-    protected static $columnBd = ['idpropiedades','titulo','precio','imagen','descripcion','habitaciones','wc','estacionamiento','creado','vendedores_idvendedores'];
+    protected static $columnBd = ['id','titulo','precio','imagen','descripcion','habitaciones','wc','estacionamiento','creado','vendedores_id'];
 
     //Atributos
-    public $idpropiedades, $titulo, $precio, $imagen, $descripcion, $habitaciones,
-    $wc, $estacionamiento, $creado, $vendedores_idvendedores;
+    public $id, $titulo, $precio, $imagen, $descripcion, $habitaciones,
+    $wc, $estacionamiento, $creado, $vendedores_id;
 
     //this -> public constructor
     function __construct($args =[]){
-        $this -> idpropiedades =$args['idpropiedades'] ?? null;
+        $this -> id =$args['id'] ?? null;
         $this -> titulo =$args['titulo'] ?? '';
         $this -> precio =$args['precio'] ?? '';
         $this -> imagen =$args['imagen'] ?? '';
@@ -23,7 +23,7 @@ class Propiedad extends ActiveRecord{
         $this -> wc =$args['wc'] ?? '';
         $this -> estacionamiento =$args['estacionamiento'] ?? '';
         $this -> creado = date('y/m/d');
-        $this -> vendedores_idvendedores =$args['vendedores_idvendedores'] ?? '';
+        $this -> vendedores_id =$args['vendedores_id'] ?? '';
     }
 
     //Validar errores
@@ -40,7 +40,7 @@ class Propiedad extends ActiveRecord{
             self::$errores[] = "El baño es obligatorio";
         }if(!$this->estacionamiento){
             self::$errores[] = "El estacionamiento es obligatorio";
-        }if(!$this->vendedores_idvendedores){
+        }if(!$this->vendedores_id){
             self::$errores[] = "El vendedor es obligatorio";
         }if(!$this->imagen){
             self::$errores[] = "La imagen de la propiedad es obligatoria";

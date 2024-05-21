@@ -67,7 +67,7 @@
         </div>
         <?php endforeach; ?>
                                                         <!--Leer los archivos 319-->
-        <form class="formulario" method="post" enctype="multipart/form-data">
+        <form class="formulario" method="post" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
             <?php include '../../includes/templates/formulario_propiedades.php'; ?>
 
             <input type="submit" value="Crear propiedad" class="boton-verde" >

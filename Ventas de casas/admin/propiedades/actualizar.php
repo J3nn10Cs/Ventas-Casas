@@ -19,7 +19,8 @@
     $property = Propiedad::find($id);
     //var_dump($consulta);  
 
-    $sller = Vendedor::all();
+    //Consulta para obtener a los vendedores
+    $seller = Vendedor::all();
 
     //Arreglo con mensaje de errores
     $errores = Propiedad::getErrores();
@@ -47,8 +48,11 @@
             }
             
             if(empty($errores)):
-                //ALMACENAR LA IMAGEN
-                $image -> save(CARPETA_IMAGENES . $nombre_imagen);
+                if($_FILES['property']['tmp_name']['imagen']){
+                    //ALMACENAR LA IMAGEN
+                    $image -> save(CARPETA_IMAGENES . $nombre_imagen);
+                }
+                
                 //Actualizar en la bd
                 $resultado = $property->guardar();
             endif;

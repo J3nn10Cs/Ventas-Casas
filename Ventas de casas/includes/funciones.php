@@ -29,3 +29,10 @@ function s($html): string{
     $s = htmlspecialchars($html);
     return $s;
 }
+
+//Validar tipo de contenido
+function ValidarContenido($type){
+    $types = ['vendedor','propiedad'];
+
+    return in_array($type,$types);
+}

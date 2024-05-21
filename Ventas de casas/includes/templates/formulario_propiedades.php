@@ -37,13 +37,15 @@
     <legend>Vendedor</legend>
 
     <label for="vendedor">Vendedor</label>
-    <select name="property[vendedores_idvendedores]" id="vendedor">
+    <select name="property[vendedores_id]" id="vendedor">
         <option selected value=""> --Selecciones--</option>
         <?php foreach($seller as $vendedor): ?>
             <!--Si el id de Vendedor es igual al vendorId a iterar -> Selected -->
             <option 
-            <?php echo $property->vendedores_idvendedores === $vendedor->idvendedores ? 'selected' : '';  ?>
-            value="<?php echo s($vendedor->idvendedores); ?>"> <?php echo s($vendedor->nombre) . " " . s($vendedor->apellido); ?> </option>
+            <?php echo $property->vendedores_id === $vendedor->id ? 'selected' : '';  ?>
+            value="<?php echo s($vendedor->id); ?>">
+             <?php echo s($vendedor->nombres) . " " . s($vendedor->apellidos); ?> 
+            </option>
         <?php endforeach; ?>
     </select>
     

@@ -33,7 +33,7 @@ $resultado = mysqli_query($db, $query);
                     <p><?php echo $propiedad['habitaciones'] ?></p>
                 </li>
             </ul>
-            <a href="anuncio.php?id=<?php echo $propiedad['idpropiedades']; ?>" class="boton-amarillo-block">Ver propiedad</a>
+            <a href="anuncio.php?id=<?php echo $propiedad['id']; ?>" class="boton-amarillo-block">Ver propiedad</a>
         </div> <!--.Contenido-->
     </div><!--.Anuncio-->
     <?php endwhile; ?>

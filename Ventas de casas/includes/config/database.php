@@ -1,7 +1,7 @@
 <?php
 
 function connectionBd(): mysqli{
-    $db = new mysqli('localhost','root','15042004','bienesraices_crud');
+    $db = new mysqli('localhost','root','15042004','DBBienesRaices');
 
     if(!$db){
         echo "Error al conectar";

@@ -53,6 +53,24 @@ table.propiedades{
      }
 }
 
+@include telefono{
+    
+    .acciones{
+        display: block;
+        justify-content: center;
+        i{
+            color: $negro;
+        }  
+        form{
+            .boton-rojo-block{
+                width: 100%;
+                height: 71%;
+            }
+        }
+        
+     }
+}
+
 .imagen-small{
     width: 25rem;
 }
