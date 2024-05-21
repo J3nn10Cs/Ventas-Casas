@@ -143,6 +143,7 @@
 
             $result = self::ConsultSql($query);
 
+            //Obtener el primer valor
             return array_shift($result);
         }
 

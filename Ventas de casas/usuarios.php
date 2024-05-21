@@ -10,7 +10,7 @@
     //tener un password diferente (tiene 60 caratcteres)
     $passwordHash = password_hash($password,PASSWORD_DEFAULT);
 
-    // var_dump($passwordHash);
+    //debuguear($passwordHash);
     //Query para crear el usuario
     $query = "INSERT INTO usuarios (email,password) VALUES ('${email}','${passwordHash}'); ";
     //echo $query;
