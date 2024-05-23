@@ -35,8 +35,6 @@
     <section class="seccion contenedor">
         <h2>Casas y depas en venta</h2>
         <?php 
-            //Solo muestra 3 anuncios
-            $limite = 3;
             include 'includes/templates/anuncios.php';
         ?>
         <div class="alinear-derecha">

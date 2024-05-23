@@ -137,6 +137,17 @@
             return $result;
         }
 
+        //Obtiene determinado número de registros
+        public static function get($cant){
+            //static => hereda el metodo y busca el atrituto en la clase heredada
+            $query = "SELECT * FROM " . static::$table . " LIMIT " .$cant;
+            //debuguear($query);
+
+            $result = self::ConsultSql($query);
+
+            return $result;
+        }
+
         //Buscar una propiedad por Id
         public static function find($id){
             $query = "SELECT * FROM ".static::$table." WHERE id = ${id}";
