@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Model;
 
 //PHP8
 class Propiedad extends ActiveRecord{

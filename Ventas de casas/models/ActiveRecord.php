@@ -1,6 +1,6 @@
 <?php
 
-    namespace App;
+    namespace Model;
 
     class ActiveRecord{
         //Base de datos - no se puede acceder desde el objeto
