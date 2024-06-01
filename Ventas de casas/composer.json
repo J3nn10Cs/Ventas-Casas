@@ -12,7 +12,7 @@
         "intervention/image": "2"
     },
     "autoload": {
-        "psr-4": {
+        "psr-4": {  
             "Model\\" : "./models",
             "MVC\\": "./",
             "Controllers\\" : "./controllers"

@@ -1,5 +1,5 @@
 <?php
-    use App\Propiedad;
+    use Model\Propiedad;
     //debuguear($_SERVER);
     if($_SERVER['SCRIPT_NAME'] === '/index.php'){
         //Solo se muetra 3 propiedades

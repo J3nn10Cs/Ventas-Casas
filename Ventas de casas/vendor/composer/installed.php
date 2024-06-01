@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '51998/bienes-raices',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '73c31decfbd7bb43324a624f11e9998464d9371a',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '51998/bienes-raices' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '73c31decfbd7bb43324a624f11e9998464d9371a',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
