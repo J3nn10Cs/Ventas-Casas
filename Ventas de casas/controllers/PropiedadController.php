@@ -6,15 +6,10 @@
     use Model\Vendedor;
     use Intervention\Image\ImageManagerStatic as Image;
 
-    class PropiedadControllers{
+    class PropiedadController{
         public static function index(Router $router){
-            $property = Propiedad::all();
-            $seller = Vendedor::all();
-            //muestra mensaje segun la condicional
-            $resultado = $_GET['resultado'] ?? null;
+            
             $router->render('propiedades/admin',[
-                'property' => $property,
-                'resultado' => $resultado
             ]);
         }
         public static function crear(Router $router){
@@ -55,7 +50,7 @@
                 }
             }
 
-            $router -> render('prpiedades/crear',[
+            $router -> render('propiedades/crear',[
                 'property' => $property,
                 'seller' => $seller,
                 'errores' => $errores
@@ -105,7 +100,7 @@
                 
             }   
 
-            $router->render('/propiedades/actualizar'.[
+            $router->render('propiedades/actualizar',   [
                 'property' => $property,
                 'errores' => $errores,
                 'seller' => $seller

@@ -1,24 +1,21 @@
 <?php
     require_once __DIR__ . '/../includes/app.php';
     
-
     use MVC\Router;
-    use Controllers\PropiedadControllers;
+    use Controllers\PropiedadController;
     use Controllers\VendedorController;
     $router = new Router();
     
-    //debuguear(PropiedadControllers::class);
+    //debuguear(PropiedadController::class);
 
-    $router->get('/admin',[PropiedadControllers::class,"index"]);
-
-    $router->get('/propiedades/crear',[PropiedadControllers::class,'crear']);
-    $router->post('/propiedades/crear',[PropiedadControllers::class,'crear']);
-
-    $router->get('/propiedades/actualizar',[PropiedadControllers::class],'actualizar');
-    $router->post('/propiedades/actualizar',[PropiedadControllers::class],'actualizar');
-
-    $router->get('/propiedades/eliminar',[PropiedadControllers::class],'eliminar');
-    $router->post('/propiedades/eliminar',[PropiedadControllers::class],'eliminar');
+    $router->get('/admin',[PropiedadController::class,"index"]);
+    $router->get('/propiedades/crear',[PropiedadController::class,'crear']);
+    $router->post('/propiedades/crear',[PropiedadController::class,'crear']);
+    $router->get('/propiedades/actualizar',[PropiedadController::class,'actualizar']);
+    $router->post('/propiedades/actualizar',[PropiedadController::class,'actualizar']);
+    $router->get('/propiedades/eliminar',[PropiedadController::class,'eliminar']);
+    $router->post('/propiedades/eliminar',[PropiedadController::class,'eliminar']);
+    
 
 
     $router->get('/vendedores/crear',[VendedorController::class,'crear']);

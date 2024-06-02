@@ -10,11 +10,11 @@ class VendedorController{
         $seller = Vendedor::all();
 
         $router -> render('vendedores/crear',[
-            
+
         ]);
     }
-    public static function actualizar(){
-
+    public static function actualizar(Router $router){
+        echo 'Eliminar';
     }
     public static function eliminar(){
         
