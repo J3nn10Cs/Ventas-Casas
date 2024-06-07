@@ -39,4 +39,16 @@ class PaginasController{
             'property' => $property,
         ]);
     }
+
+    public static function entrada(Router $router){
+        $router -> render('paginas/entrada',[
+
+        ]);
+    }
+
+    public static function contacto(Router $router){
+        $router -> render('paginas/contacto',[
+
+        ]);
+    }
 }
