@@ -26,8 +26,9 @@ class PaginasController{
         ]);
     }
     public static function blog(Router $router){
+        $property = Propiedad::all();
         $router -> render('paginas/blog',[
-            
+            'property' => $property
         ]);
     }
 
