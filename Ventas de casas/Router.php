@@ -14,7 +14,7 @@
         }
 
         public function ComprobarRutas(){
-            $urlActual = $_SERVER['REQUEST_URI'] ?? '/';
+            $urlActual = $_SERVER['PATH_INFO'] ?? '/';
             $metodo = $_SERVER['REQUEST_METHOD'];
             //debuguear($_SERVER['REQUEST_METHOD']);
             if($metodo === 'GET'){
@@ -36,8 +36,11 @@
 
 
         //Muestra una vista
-        public function render($view){
-            
+        public function render($view, $datos=[]){
+            //$$ -> variable de variable
+            foreach ($datos as $key => $value){
+                $$key = $value;
+            }
             //almacena en memoria
             ob_start();
             include __DIR__ . "/views/$view.php";

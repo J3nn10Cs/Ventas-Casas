@@ -8,10 +8,18 @@
 
     class PropiedadController{
         public static function index(Router $router){
-            
+            $property = Propiedad::all();
+            $seller = Vendedor::all();
+            //muestra mensaje segun la condicional
+            $resultado = $_GET['resultado'] ?? null;
+
             $router->render('propiedades/admin',[
+                'property' => $property,
+                'seller' => $seller,
+                'resultado' => $resultado
             ]);
         }
+
         public static function crear(Router $router){
             $property = new Propiedad();
             $seller = Vendedor::all();
@@ -61,9 +69,7 @@
             $id = ValidarRdireccionar('/admin');            
             $property = Propiedad::find($id);
             $seller = Vendedor::all();
-
             $errores = Propiedad::getErrores();
-
             //Metdo POST para actualizar
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 //Asignar los atributos
@@ -98,9 +104,8 @@
                     
                 }
                 
-            }   
-
-            $router->render('propiedades/actualizar',   [
+            }
+            $router->render('/propiedades/actualizar',[
                 'property' => $property,
                 'errores' => $errores,
                 'seller' => $seller
@@ -115,11 +120,10 @@
                 $id = filter_var($id,FILTER_VALIDATE_INT);
 
                 if($id){
-
                     $type = $_POST['tipo'];
-
                     if(ValidarContenido($type)){
-                        
+                        $property = Propiedad::find($id);
+                        $property -> eliminar();
                     }
                     
                 }

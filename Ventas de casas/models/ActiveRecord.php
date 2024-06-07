@@ -6,7 +6,7 @@
         //Base de datos - no se puede acceder desde el objeto
         protected static $db;
         //Arreglo que va a permitir mapear
-        protected static $columnBd = [''];
+        protected static $columnBd = [];
         protected static $table = '';
 
         //ERRORES -> protected pq solo se va a modificar en la clase y estatico pq no se va a requerir instanciar
