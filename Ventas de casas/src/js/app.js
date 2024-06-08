@@ -50,6 +50,11 @@ function eventListeners(){
     const mobileMenu = document.querySelector('.mobile-menu');
 
     mobileMenu.addEventListener('click',navegationResponsive);
+
+    //Mostrar campos adicionales => por atributo
+    const ContactMethod = document.querySelectorAll('input[name="contacto[contacto]"]')
+
+    ContactMethod.forEach(input=> input.addEventListener('click',ShowContactMethod))
 }
 
 function navegationResponsive(){
@@ -58,6 +63,29 @@ function navegationResponsive(){
     navegacion.classList.toggle('mostrar');
 }
 
+function ShowContactMethod(e){
+    const ContactDiv = document.querySelector('#contacto')
+
+    if(e.target.value === 'telefono'){
+        ContactDiv.innerHTML = `
+            <input type="tel" placeholder="Tu número" id="telefono" name="contacto[telefono]" required>
+
+            <p>Eligió Telefono, elija fecha y hora</p>
+            
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="contacto[fecha]">
+                    
+            <label for="hora">Hora</label>
+            <input type="time" id="hora" min="09:00" max="18:00" name="contacto[hora]">
+        `;
+    }else{
+        ContactDiv.innerHTML = `
+            <input type="email" placeholder="Tu email" id="email" name="contacto[email]" required> 
+
+
+        `;
+    }
+}
 // function Alerta(){
 //     const alerta = Document.querySelector('.alerta error');
 
