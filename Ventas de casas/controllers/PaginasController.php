@@ -58,8 +58,8 @@ class PaginasController{
             $email -> isSMTP();
             $email -> Host = 'sandbox.smtp.mailtrap.io';
             $email -> SMTPAuth = true;
-            $email -> Username = 'dcc37b831f0332';
-            $email -> Password = '9b8efa0046ea70';
+            $email -> Username = 'a8f12985799f32';
+            $email -> Password = 'b3f688088136ba';
             $email -> SMTPSecure = 'tls';
             $email -> Port = 2525;
 

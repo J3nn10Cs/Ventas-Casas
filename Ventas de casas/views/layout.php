@@ -40,7 +40,7 @@
                     </nav>
                     <i class="fa-solid fa-sun fa-xl" id="icon"></i>
                     <?php if($auth): ?>
-                            <a href="../../cerrarsesion.php" class="cerrar">
+                            <a href="/logout" class="cerrar">
                                 <i class="fa-solid fa-right-to-bracket fa-xl"></i>
                             </a>
                     <?php endif; ?>

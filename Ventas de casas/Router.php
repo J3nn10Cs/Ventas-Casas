@@ -14,6 +14,14 @@
         }
 
         public function ComprobarRutas(){
+            //Contiene la sesion iniciada
+            session_start();
+
+            $auth = $_SESSION['login'] ?? null;
+
+            //Arreglo de rutas protegidas
+            $ruta_prote = ['/admin', '/propiedades/crear','/propiedades/actualizar','/propiedades/eliminar','/vendedores/crear','vendedores/actualizar','/vendedores/eliminar'];
+
             $urlActual = $_SERVER['PATH_INFO'] ?? '/';
             $metodo = $_SERVER['REQUEST_METHOD'];
             //debuguear($_SERVER['REQUEST_METHOD']);
@@ -24,7 +32,11 @@
             }else{
                 $fn = $this->rutasPost[$urlActual] ?? null;
             }
-            //debuguear($this);
+            
+            //Proteger las rutas
+            if(in_array($urlActual,$ruta_prote) && !$auth){
+                header('Location: /');
+            }
 
             if($fn){
                 //Llamar una funcion cuando no sabemos como se llama
