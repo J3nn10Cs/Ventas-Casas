@@ -20,7 +20,7 @@
             $auth = $_SESSION['login'] ?? null;
 
             //Arreglo de rutas protegidas
-            $ruta_prote = ['/admin', '/propiedades/crear','/propiedades/actualizar','/propiedades/eliminar','/vendedores/crear','vendedores/actualizar','/vendedores/eliminar'];
+            $ruta_prote = ['/admin', '/propiedades/crear','/propiedades/actualizar','/propiedades/eliminar','/vendedores/crear','/vendedores/actualizar','/vendedores/eliminar'];
 
             $urlActual = $_SERVER['PATH_INFO'] ?? '/';
             $metodo = $_SERVER['REQUEST_METHOD'];
