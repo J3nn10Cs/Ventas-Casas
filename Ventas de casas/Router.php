@@ -46,7 +46,6 @@
             }
         }
 
-
         //Muestra una vista
         public function render($view, $datos=[]){
             //$$ -> variable de variable
