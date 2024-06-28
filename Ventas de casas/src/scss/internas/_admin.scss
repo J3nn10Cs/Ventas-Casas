@@ -4,7 +4,7 @@
     margin-bottom: 1rem;
     color: $blanco;
     font-size: 1.9rem;
-    &.error,&.elimado{
+    &.error{
         background-color: $rojo;
         border-radius: .5rem;
     }

@@ -2,7 +2,7 @@
     <h1>Iniciar Sesion</h1>
     <!--Iterar los errores-->
     <?php foreach ($errores as $error): ?>
-    <div class="alerta error">
+    <div class="alerta error hidden">
         <?php echo $error; ?>
     </div>
     <?php endforeach; ?>
@@ -18,7 +18,7 @@
             <label for="password">Password</label>
             <input type="password" placeholder="Tu password" id="password" name="password">
 
-            <button type="submit" class="boton-verde">
+            <button type="submit" class="boton-verde mandar">
                  Iniciar Sesión
                  <i class="fa-regular fa-user fa-lg"></i>
             </button>

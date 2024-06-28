@@ -1,7 +1,12 @@
+const alerta = document.querySelector('.alerta');
+const btnsubmit = document.querySelector('.mandar');
+
 document.addEventListener('DOMContentLoaded',function(){
     //Cargar el html
     eventListeners();
     darkMode();
+    Alerta();
+    btnsubmit.addEventListener('click', Alerta)
     //Alerta()
 });
 
@@ -86,10 +91,11 @@ function ShowContactMethod(e){
         `;
     }
 }
-// function Alerta(){
-//     const alerta = Document.querySelector('.alerta error');
 
-//     setTimeout(()=>{
-//         alerta.remove()
-//     },3000);
-// }
+const Alerta = (() => {
+    alerta.classList.add('alerta', 'error');
+    setTimeout(()=>{
+        alerta.classList.remove('alerta', 'error', 'exito');
+        alerta.innerHTML = '';
+    },3000);
+})
